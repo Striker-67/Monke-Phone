@@ -25,6 +25,9 @@ namespace MonkePhone
             {
                 $"Game Initialized".Log();
                 Transform Menu = GameObject.Instantiate(AssetLoader.GetAsset("Phone") as GameObject).transform;
+                Menu.SetParent(GorillaLocomotion.Player.Instance.leftHandTransform);
+                Menu.localPosition = Vector3.zero; // We will worry about offset when the model is one - crafterbot
+                Menu.localRotation = Quaternion.identity; // Same story here - crafterbot
                 new MenuController(Menu);
             };
         }
