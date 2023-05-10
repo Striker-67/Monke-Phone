@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using MonkePhone.UI;
 using MonkePhone.Util;
+using UnityEngine;
 
 namespace MonkePhone
 {
@@ -23,7 +24,8 @@ namespace MonkePhone
             Utilla.Events.GameInitialized += (object sender, System.EventArgs e) =>
             {
                 $"Game Initialized".Log();
-                new MenuController();
+                Transform Menu = GameObject.Instantiate(AssetLoader.GetAsset("Phone") as GameObject).transform;
+                new MenuController(Menu);
             };
         }
     }
