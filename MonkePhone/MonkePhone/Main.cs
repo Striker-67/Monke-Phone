@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using MonkePhone.UI;
 using MonkePhone.Util;
 
 namespace MonkePhone
@@ -16,6 +17,14 @@ namespace MonkePhone
         {
             manualLogSource = Logger; // to log messages in bold use ``loglevel message`` - crafterbot
             $"Init : {NAME}".Log();
+
+            // Lets try to avoid hooking - crafterbot
+
+            Utilla.Events.GameInitialized += (object sender, System.EventArgs e) =>
+            {
+                $"Game Initialized".Log();
+                new MenuController();
+            };
         }
     }
 }
