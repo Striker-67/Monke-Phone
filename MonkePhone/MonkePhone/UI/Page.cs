@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace MonkePhone.UI
@@ -13,7 +12,10 @@ namespace MonkePhone.UI
         {
         }
 
-        public void SetItems(List<App> items)
+        public void SetText(StringBuilder stringBuilder)
+        {
+        }
+        public void DrawPage(List<App> items)
         {
 
         }

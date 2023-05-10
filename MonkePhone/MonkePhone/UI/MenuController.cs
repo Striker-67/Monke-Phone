@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MonkePhone.UI
@@ -23,6 +24,9 @@ namespace MonkePhone.UI
             foreach (Type type in typeof(Page).Assembly.GetTypes())
                 if (type.IsSubclassOf(typeof(Page)))
                     pages.Add((Page)Activator.CreateInstance(type));
+
+            // Open page by default
+            OpenPage<Pages.PrimaryPage>();
         }
 
         public void ClearPage()
@@ -30,9 +34,10 @@ namespace MonkePhone.UI
 
         }
 
-        public void DrawPage<T>() where T : Page
+        public void OpenPage<T>() where T : Page
         {
-
+            ClearPage();
+            Pages.First(x => x.GetType() == typeof(T)).OnPageEnter();
         }
     }
 }
