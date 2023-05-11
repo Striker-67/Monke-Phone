@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonkePhone.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -37,7 +38,10 @@ namespace MonkePhone.UI
 
         public void ClearPage()
         {
-
+            "Wiping page...".Log();
+            int ToDestroy = ButtonGrouping.childCount;
+            for (int i = 1; i < ToDestroy; i++)
+                GameObject.Destroy(ButtonGrouping.GetChild(i).gameObject);
         }
 
         public void OpenPage<T>() where T : Page
