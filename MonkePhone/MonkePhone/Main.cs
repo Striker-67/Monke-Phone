@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MonkePhone
 {
-    [BepInPlugin(GUID, NAME, VERSION), BepInDependency("org.legoandmars.gorillatag.utilla")]
+    [BepInPlugin(GUID, NAME, VERSION), BepInDependency("org.legoandmars.gorillatag.utilla"), BepInDependency("com.ahauntedarmy.gorillatag.tmploader")]
     internal class Main : BaseUnityPlugin
     {
         internal const string

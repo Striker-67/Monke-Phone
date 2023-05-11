@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace MonkePhone.UI
@@ -11,6 +12,7 @@ namespace MonkePhone.UI
 
         public Transform ButtonGrouping;
         public Transform BaseButton;
+        public TextMeshPro TextMesh;
 
         public Page[] Pages;
         public Type ActivePage;
@@ -18,6 +20,10 @@ namespace MonkePhone.UI
         public MenuController(Transform Phone)
         {
             Instance = this;
+
+            // Get button grouping
+            ButtonGrouping = Phone.Find("ButtonGrouping");
+            BaseButton = ButtonGrouping.GetChild(0);
 
             // find all pages in assembly
             List<Page> pages = new List<Page>();
